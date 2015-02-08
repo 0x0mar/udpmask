@@ -2,7 +2,12 @@
 #define _incl_UDPMASK_H
 
 #include <time.h>
+
+#ifndef WIN32
 #include <netinet/in.h>
+#else
+#include <winsock2.h>
+#endif
 
 #define UM_SERVER_PORT  51194
 #define UM_CLIENT_PORT  61194

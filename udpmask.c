@@ -1,6 +1,5 @@
 #include <errno.h>
 #include <libgen.h>
-#include <netdb.h>
 #include <signal.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -8,11 +7,22 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+#include <sys/stat.h>
+
+#ifndef WIN32
+
+#include <netdb.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <sys/select.h>
 #include <sys/socket.h>
-#include <sys/stat.h>
+
+#else
+
+#include <winsock2.h>
+#include <ws2tcpip.h>
+
+#endif
 
 #include "log.h"
 #include "transform.h"
